@@ -13,9 +13,16 @@ gem 'bcrypt'
 gem 'pry-rails'
 gem 'faker'
 gem 'font-awesome-rails'
+gem 'figaro'
+gem "paperclip", '5.0.0.beta1'
+gem 'aws-sdk', '>= 2.0'
 
 group :development, :test do
   gem 'byebug'
+end
+
+group :productions do
+  gem 'rails_12factor'
 end
 
 group :development do
