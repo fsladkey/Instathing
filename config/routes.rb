@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :photos, only: [:create, :update, :index, :destroy]
   end
 
-    # get "/*path", to: "static_pages#root"
+    get "/*path", to: "static_pages#root"
 end

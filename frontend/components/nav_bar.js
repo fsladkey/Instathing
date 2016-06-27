@@ -10,7 +10,7 @@ export default class NavBar extends React.Component {
     return (
       <nav className="nav-bar">
         <div className="nav-content flex-row">
-          <h1 className="flex-item logo"/>
+          <a  href="#" className="flex-item logo"/>
           <Search />
           <UserInfo />
         </div>
