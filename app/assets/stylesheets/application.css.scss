@@ -67,6 +67,8 @@ ul {
 }
 
 .search {
+  font-size: 14px;
+  padding: 0 20px;
   display: block;
   margin: auto;
   text-align: center;
@@ -77,8 +79,16 @@ ul {
   border-radius: 4px;
 }
 
+.search:focus {
+  text-align: left;
+}
+
+.user-info {
+  text-align: right;
+}
+
 .user-info li {
-  float: right;
+  display: inline-block;
 }
 
 .user-info a {

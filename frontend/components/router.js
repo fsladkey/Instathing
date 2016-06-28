@@ -20,9 +20,9 @@ const routes = (
     <Router history={history}>
       <Route path="/" component={App}>
         <IndexRoute component={PhotoIndex} />
-          <Route path="explore" component={Explore} />
-          <Route path="photo/:photoId" component={PhotoDetail}/>
-          <Route path=":username" component={UserShow}>
+        <Route path="explore" component={Explore} />
+        <Route path=":username" component={UserShow}>
+          <Route path="photos/:photoId" component={PhotoDetail}/>
         </Route>
       </Route>
     </Router>
