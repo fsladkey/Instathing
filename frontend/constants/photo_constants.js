@@ -1,9 +1,6 @@
-const PhotoConstants = {
-  FETCH_PHOTOS: "FETCH_PHOTOS",
-  ADD_PHOTO: "ADD_PHOTO",
-  ADD_PHOTOS: "ADD_PHOTOS",
-  DELETE_PHOTO: "DELETE_PHOTO",
-  EDIT_PHOTO: "EDIT_PHOTO"
-};
-
-export default PhotoConstants;
+export const REQUEST_PHOTOS = "REQUEST_PHOTOS";
+export const FETCH_PHOTOS = "FETCH_PHOTOS";
+export const ADD_PHOTOS = "ADD_PHOTOS";
+export const ADD_PHOTO = "ADD_PHOTO";
+export const UPDATE_PHOTO = "UPDATE_PHOTO";
+export const DELETE_PHOTO = "DELETE_PHOTO";

@@ -5,14 +5,12 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import instathingApp from '../reducers/instathing_app';
-
 import PhotoIndex from "./photos/photo_index";
 import PhotoDetail from "./photos/photo_detail";
 import UserShow from "./users/user_show";
 import Explore from "./explore";
 
-const store = createStore(instathingApp);
+import store from '../store/store.js';
 
 // const history = syncHistoryWithStore(browserHistory, store);
 const history = browserHistory;
