@@ -16,7 +16,7 @@
  */
 
  html, body, section, header, nav, h1, h2, h3, h4, h5, article, div, ul, ol, li, a, i,
-strong, img, small, p, figure, progress, meter, fieldset {
+strong, img, small, p, button, figure, progress, meter, fieldset {
   margin: 0;
   padding: 0;
   border: 0;
@@ -53,13 +53,21 @@ ul {
 }
 
 .logo {
-
+  display: block;
   background-image: asset-url("logo.png");
   background-repeat: no-repeat;
   background-size: contain;
-  margin-top: -4px;
+  margin: -4px auto 0 auto;
+}
+
+.logo.small {
   height: 40px;
   width: 100px;
+}
+
+.logo.large {
+  height: 75px;
+  width: 275px;
 }
 
 .search-container {
@@ -99,8 +107,9 @@ ul {
 }
 
 .photo-index {
-  margin: auto;
+  margin: 0 auto 50px auto;
   width: 600px;
+  display: none;
 }
 
 .photo-index-item {
@@ -127,6 +136,142 @@ ul {
 
 .flex-item {
   flex: 1;
+}
+
+.flex-item-double {
+  flex: 2;
+}
+
+.sign-in-form {
+  padding: 30px;
+  margin: 50px auto;
+  width: 350px;
+  height: 320px;
+  background: white;
+  text-align: center;
+  border: 1px solid #DBDBDB;
+}
+
+.sign-in-form input {
+  width: 250px;
+  display: block;
+  margin: auto;
+  padding: 10px;
+}
+
+.sign-in-form button {
+  display: block;
+  margin: 20px auto 0 auto;
+  width: 270px;
+  padding: 5px;
+  background-color: #3897F0;
+  color: white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.sign-in-form label {
+  display: block;
+  margin-left: -5000px;
+}
+
+.modal-background {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  width: 500px;
+  margin: 100px auto 0 auto;
+}
+
+.modal-content > button {
+  border: 1px solid #DBDBDB;
+  background: white;
+  display: block;
+  padding: 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.modal-content > button:hover {
+  background: #FAFAFA;
+}
+
+.profile-container {
+  margin-bottom: 20px;
+}
+
+.user-profile-info {
+  padding-left: 40px;
+}
+
+.profile-header-item {
+  margin-right: 20px;
+}
+
+span.profile-header-item {
+  font-size: 34px;
+}
+
+a.profile-header-item {
+  position: relative;
+  top: -3px;
+  padding: 6px 12px;
+  border: 1px solid #939393;
+  color: #939393;
+  border-radius: 3px;
+}
+
+i.profile-header-item {
+  position: relative;
+  top: 3px;
+  cursor: pointer;
+}
+
+.user-show {
+  display: none;
+}
+
+.user-stats strong {
+  font-weight: bold;
+}
+
+.user-bio {
+  padding: 10px 0;
+}
+
+.user-stat {
+  margin-right: 20px;
+}
+
+.profile-photo-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  /* tweak the where items line up on the row */
+  /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+  align-content: flex-end;
+}
+
+.profile-photo-item {
+  width: 290px;
+  height: 290px;
+  background: white;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.user-show {
+  width: 950px;
+  margin: auto;
+  padding: 25px;
 }
 
 .spinner {

@@ -1,3 +1,5 @@
+User.destroy_all
+
 fred = User.create!(username: "fredsladkey", password: "password")
 joey = User.create!(username: "joeyprimero", password: "password")
 ulysses = User.create!(username: "ulysses", password: "password")
@@ -5,12 +7,10 @@ bailey = User.create!(username: "bailey", password: "password")
 chester = User.create!(username: "chester", password: "password")
 pepper = User.create!(username: "pepper", password: "password")
 
+Photo.destroy_all
+
 ulysses.photos.create!(
   image: open("https://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/12338477_998245480236888_518154446_n.jpg?ig_cache_key=MTE0ODI4NjYwMTcwNzk2NTgyNw%3D%3D.2"),
-)
-
-joey.photos.create!(
-  image: open("https://scontent-lga3-1.cdninstagram.com/t51.2885-15/s320x320/e35/13320244_1751108521831835_1236396872_n.jpg?ig_cache_key=MTI2NDAxNzE5NjkzODYxMjgwMw%3D%3D.2"),
 )
 
 joey.photos.create!(

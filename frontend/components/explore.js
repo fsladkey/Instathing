@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class Explore extends React.Component {
+export default class Explore extends Component {
 
   render() {
     return (

@@ -1,20 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router';
 
+import Logo from './logo';
 import Search from './search';
 import UserInfo from './user_info';
 
-export default class NavBar extends React.Component {
-
-  render() {
-    return (
-      <nav className="nav-bar">
-        <div className="nav-content flex-row">
-          <Link  to="/" className="flex-item logo"/>
-          <Search />
-          <UserInfo />
-        </div>
-      </nav>
-    );
-  }
+export default function NavBar(props) {
+  return (
+    <nav className="nav-bar">
+      <div className="nav-content flex-row">
+        <Logo size="small" />
+        <Search />
+        <UserInfo />
+      </div>
+    </nav>
+  );
 }

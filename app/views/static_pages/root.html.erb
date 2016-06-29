@@ -1,3 +1,11 @@
+<script type="application/json" id="bootstrap-current-user">
+  <% if logged_in? %>
+    <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
+  <% else %>
+    <%= {}.to_json %>
+  <% end %>
+</script>
+
 <script>
   window.InstaThingAssets = {
     logo: "/"

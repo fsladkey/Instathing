@@ -28,7 +28,7 @@ class PhotoIndex extends Component {
     if (this.props.fetching) return <Spinner />;
 
     return (
-      <div className="photo-index">
+      <div className="photo-index" ref={(self) => $(self).fadeIn('normal')}>
         { this.photos() }
       </div>
     );
@@ -41,7 +41,7 @@ function mapStateToProps({ photos, fetching }) {
 
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchPhotos: fetchPhotos }, dispatch);
+  return bindActionCreators({ fetchPhotos }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotoIndex);

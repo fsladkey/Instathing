@@ -1,7 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
+import { changeModal } from '../actions/modal_actions';
 
-export default class Search extends React.Component {
+import SignOutModal from './sign_out_modal';
+
+class UserInfo extends React.Component {
 
   render() {
     return (
@@ -19,3 +24,9 @@ export default class Search extends React.Component {
     );
   }
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ changeModal }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(UserInfo);

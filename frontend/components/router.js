@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import PhotoIndex from "./photos/photo_index";
+import HomePage from "./home_page";
 import PhotoDetail from "./photos/photo_detail";
 import UserShow from "./users/user_show";
 import Explore from "./explore";
@@ -14,12 +14,11 @@ import store from '../store/store.js';
 
 // const history = syncHistoryWithStore(browserHistory, store);
 const history = browserHistory;
-
 const routes = (
   <Provider store={store}>
     <Router history={history}>
       <Route path="/" component={App}>
-        <IndexRoute component={PhotoIndex} />
+        <IndexRoute component={HomePage} />
         <Route path="explore" component={Explore} />
         <Route path=":username" component={UserShow}>
           <Route path="photos/:photoId" component={PhotoDetail}/>

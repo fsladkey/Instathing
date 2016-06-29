@@ -1,2 +1,17 @@
 class Api::UsersController < ApplicationController
-end
+
+  def index
+    @users = User.all
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      log_in!(@user)
+      render :show
+    else
+      render json: @user.errors
+    end
+  end
+
+ends

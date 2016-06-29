@@ -1,27 +1,21 @@
-import React from 'react';
-import HomePage from './home_page';
-import SignInPage from './sign_in_page';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { currentUser: true };
-  }
-
-  content() {
-    let loggedIn = !!this.state.currentUser;
-    if (loggedIn) {
-      return <HomePage children={this.props.children}/>;
-    } else {
-      return <SignInPage />;
-    }
-  }
-
+class App extends Component () {
   render() {
     return (
       <div className="content">
-        { this.content() }
+        { this.props.modal }
+        { this.props.children }
       </div>
     );
   }
 }
+
+
+function mapStateToProps({ modal }) {
+  return { modal };
+}
+
+
+export default connect(mapStateToProps)(App);

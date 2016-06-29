@@ -1,0 +1,1 @@
+export const RECEIVE_MODAL = "RECEIVE_MODAL";

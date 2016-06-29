@@ -1,23 +1,23 @@
-import { FETCH_PHOTOS, ADD_PHOTO, ADD_PHOTOS, DELETE_PHOTO, EDIT_PHOTO } from '../constants/photo_constants';
+import { ADD_PHOTO, ADD_PHOTOS, DELETE_PHOTO, UPDATE_PHOTO } from '../constants/photo_constants';
 
 const initialState = [];
 
-export default function todos(state = initialState, action) {
-  switch (action.type) {
+export default function photos(state = initialState, { payload, type } ) {
+  switch (type) {
 
     case ADD_PHOTO:
-      return [ action.photo, ...state ];
+      return [ payload.photo, ...state ];
 
     case ADD_PHOTOS:
-      return action.payload.photos;
+      return [ ...state, ...payload.photos ];
 
     case DELETE_PHOTO:
       return state.filter(photo => photo.id !== action.photo.id );
 
-    case EDIT_PHOTO:
+    case UPDATE_PHOTO:
       return state.map(photo =>
-        photo.id === action.photo.id ?
-          action.photo : photo
+        photo.id === payload.photo.id ?
+          payload.photo : photo
       );
 
     default:
