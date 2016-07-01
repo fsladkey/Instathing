@@ -29,7 +29,7 @@ class SignInForm extends Component {
 
   render() {
     return (
-      <div className="sign-in-form">
+      <div className="sign-in-form" ref={(self) => $(self).fadeIn('normal')}>
         <Logo size="large" />
         <form onSubmit={this.handleSubmit.bind(this)} ref={ (form) => this.form = form }>
 

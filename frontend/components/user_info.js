@@ -9,6 +9,7 @@ import SignOutModal from './sign_out_modal';
 class UserInfo extends React.Component {
 
   render() {
+    let username = this.props.currentUser.username;
     return (
       <ul className="flex-item user-info">
         <li>
@@ -18,15 +19,19 @@ class UserInfo extends React.Component {
           <Link to="#" className="fa fa-heart-o fa-2x" aria-hidden="true"></Link>
         </li>
         <li>
-          <Link to="/username" className="fa fa-user fa-2x" aria-hidden="true"></Link>
+          <Link to={`/${username}`} className="fa fa-user fa-2x" aria-hidden="true"></Link>
         </li>
       </ul>
     );
   }
 }
 
+function mapStateToProps({ session }) {
+  return { currentUser: session };
+}
+
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ changeModal }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(UserInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);

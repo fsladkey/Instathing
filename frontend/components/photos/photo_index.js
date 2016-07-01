@@ -8,7 +8,7 @@ import Spinner from '../spinner';
 
 class PhotoIndex extends Component {
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchPhotos();
   }
 

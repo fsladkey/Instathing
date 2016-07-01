@@ -9,6 +9,7 @@ export default class PhotoIndexItem extends React.Component {
     return (
       <li className="photo-index-item">
         <h3>
+          <img className="thumbnail circle" src={this.props.photo.user.thumbnail}/>
           <Link to={`/${username}`}>{username}</Link>
         </h3>
         <img src={this.props.photo.image_url}/>

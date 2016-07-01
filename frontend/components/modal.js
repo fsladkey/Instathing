@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { changeModal } from '../actions/modal_actions'
+import { bindActionCreators } from 'redux';
+import { changeModal } from '../actions/modal_actions';
+import { browserHistory } from 'react-router';
 
-class Modal extends Component () {
+class Modal extends Component {
+
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    this.props.changeModal(null);
+    if (this.props.redirect) {
+      browserHistory.push(this.props.redirect);
+    }
+  }
+
   render() {
     return (
       <div
         className="modal-background"
-        onClick={ (e) => this.props.changeModal(null) }
+        onClick={ this.handleClick }
         >
         { this.props.children }
       </div>
@@ -15,9 +30,12 @@ class Modal extends Component () {
   }
 }
 
+function mapStateToProps({ redirect }) {
+  return { redirect };
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ changeModal }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

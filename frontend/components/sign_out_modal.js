@@ -8,11 +8,21 @@ import { changeModal } from '../actions/modal_actions';
 import Modal from './modal';
 
 class SignOutModal extends Component {
+  constructor(props) {
+    super(props);
+    this.logOut = this.logOut.bind(this);
+  }
+
+  logOut(e) {
+    this.props.changeModal(null);
+    this.props.logOut();
+  }
+
   render() {
     return (
       <Modal>
         <div className="modal-content" onClick={ (e) => e.stopPropagation() }>
-          <button onClick={ (e) => this.props.logOut() }>Log out</button>
+          <button onClick={ this.logOut }>Log out</button>
           <button onClick={ (e) => this.props.changeModal(null) }>Cancel</button>
         </div>
       </Modal>

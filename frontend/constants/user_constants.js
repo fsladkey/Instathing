@@ -1,0 +1,2 @@
+export const REQUEST_USER = "REQUEST_USER";
+export const SHOWN_USER_RECEIVED = "SHOWN_USER_RECEIVED";

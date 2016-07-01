@@ -1,12 +1,9 @@
 import React from 'react';
 
-export default class UserProfilePhoto extends React.Component {
-
-  render() {
-    return (
-      <div className="flex-item">
-        <img src="" />
-      </div>
-    );
-  }
+export default function UserProfilePhoto(props) {
+  return (
+    <div className="flex-item">
+      <img className="circle profile-photo" src={ props.user.avatar_url } />
+    </div>
+  );
 }

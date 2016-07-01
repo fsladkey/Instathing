@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, :session_token, presence: true
   validates :password, length: { minimum: 3, allow_nil: true }
 
+  has_attached_file :avatar, default_url: "corgi_:style.jpg", :styles => {
+      :thumb => "40x40#"
+  }
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+
   after_initialize :ensure_session_token
 
   has_many :photos

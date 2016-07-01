@@ -9,15 +9,33 @@ import SignOutModal from '../sign_out_modal';
 
 class ProfileInfo extends Component {
 
+  isCurrentUser() {
+    return this.props.currentUser.id === this.props.user.id;
+  }
+
+  editOrFollow() {
+    if (this.isCurrentUser()) {
+      return (
+        <Link className="profile-header-item clickable" to="/accounts/edit">
+          Edit Profile
+        </Link>
+      );
+    } else {
+      return (
+        <button className="profile-header-item clickable" >
+          Follow
+        </button>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="user-profile-info flex-item-double" >
 
         <div>
-          <span className="profile-header-item">{"Username"}</span>
-          <Link className="profile-header-item" to="/accounts/edit">
-            Edit Profile
-          </Link>
+          <span className="profile-header-item">{this.props.user.username}</span>
+          { this.editOrFollow() }
           <i
             className="profile-header-item fa fa-ellipsis-h fa-2x"
             aria-hidden="true"
@@ -26,7 +44,7 @@ class ProfileInfo extends Component {
         </div>
 
         <p className="user-bio">
-          some bio or something else blah blah.
+          { this.props.user.bio }
         </p>
 
         <div className="user-stats">
@@ -39,9 +57,12 @@ class ProfileInfo extends Component {
     );
   }
 }
+function mapStateToProps({ session, shownUser}) {
+  return { user: shownUser.user, currentUser: session };
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ changeModal }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(ProfileInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(ProfileInfo);
