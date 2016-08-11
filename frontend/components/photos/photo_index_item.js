@@ -1,18 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Comments from '../comments/comments';
+import CommentForm from '../comments/comment_form';
+import PhotoAuthorHeader from './photo_author_header';
 import { connect } from 'react-redux';
 
 export default class PhotoIndexItem extends React.Component {
 
   render() {
-    const username = this.props.photo.user.username;
+    const photo = this.props.photo,
+          username = photo.user.username;
     return (
       <li className="photo-index-item">
-        <h3>
-          <img className="thumbnail circle" src={this.props.photo.user.thumbnail}/>
-          <Link to={`/${username}`}>{username}</Link>
-        </h3>
-        <img src={this.props.photo.image_url}/>
+        <PhotoAuthorHeader photo={photo} />
+
+        <img src={photo.image_url}/>
+        <div className="photo-index-item-footer">
+          <Comments photo={photo}/>
+          <CommentForm photo={photo}/>
+        </div>
       </li>
     );
   }

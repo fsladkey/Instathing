@@ -10,6 +10,10 @@ class SignInForm extends Component {
 
   constructor(props) {
     super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
+
     this.state = {
       username: "",
       password: ""
@@ -21,24 +25,25 @@ class SignInForm extends Component {
     this.props.login(this.state);
   }
 
-  update(field, value) {
-    var newState = {};
-    newState[field] = value;
-    this.setState(newState);
+  guestLogin() {
+    this.props.login({
+      username: "fredsladkey",
+      password: "password"
+    });
   }
 
   render() {
     return (
       <div className="sign-in-form" ref={(self) => $(self).fadeIn('normal')}>
         <Logo size="large" />
-        <form onSubmit={this.handleSubmit.bind(this)} ref={ (form) => this.form = form }>
+        <form onSubmit={this.handleSubmit} ref={ (form) => this.form = form }>
 
           <label htmlFor="username-input">Username</label>
             <input
               id="username-input"
               type="text"
               placeholder="username"
-              onChange={(e) => this.update("username", e.currentTarget.value)}
+              onChange={(e) => this.setState({username: e.currentTarget.value})}
               />
 
           <label htmlFor="password-input">Password</label>
@@ -46,12 +51,13 @@ class SignInForm extends Component {
               id="password-input"
               type="password"
               placeholder="password"
-              onChange={(e) => this.update("password", e.currentTarget.value)}
+              onChange={(e) => this.setState({password: e.currentTarget.value})}
               />
 
           <button>Log in</button>
 
         </form>
+        <button onClick={this.guestLogin}>Guest Login</button>
       </div>
     );
   }

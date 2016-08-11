@@ -13,7 +13,7 @@ export function fetchUser(username) {
 export function requestUser() {
   return {
     type: REQUEST_USER
-  }
+  };
 }
 
 export function receiveShownUser(user) {

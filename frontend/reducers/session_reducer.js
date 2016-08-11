@@ -6,7 +6,6 @@ export default function session(state = initialState, { type, payload }) {
   switch (type) {
 
     case RECEIVE_CURRENT_USER:
-      debugger
       return payload.currentUser;
 
     default:

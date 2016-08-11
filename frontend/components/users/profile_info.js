@@ -29,6 +29,11 @@ class ProfileInfo extends Component {
     }
   }
 
+  postCount() {
+    const photos = this.props.user.photos;
+    return photos ? photos.length : 0;
+  }
+
   render() {
     return (
       <div className="user-profile-info flex-item-double" >
@@ -48,7 +53,7 @@ class ProfileInfo extends Component {
         </p>
 
         <div className="user-stats">
-          <UserStat type="Posts" num="0"/>
+          <UserStat type="Posts" num={this.postCount()}/>
           <UserStat type="Followers" num="0"/>
           <UserStat type="Following" num="0"/>
         </div>

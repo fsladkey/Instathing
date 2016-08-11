@@ -7,11 +7,16 @@ import PhotoDetailModal from './photo_detail_modal';
 class PhotoDetail extends React.Component {
 
   componentWillMount() {
+    document.body.classList.add('noscroll');
     this.props.changeModal(<PhotoDetailModal photo={ this.findPhoto(this.props) }/>);
   }
 
   componentWillReceiveProps(newProps) {
     this.props.changeModal(<PhotoDetailModal photo={ this.findPhoto(newProps) }/>);
+  }
+
+  componentWillUnmount() {
+    document.body.classList.remove('noscroll');
   }
 
   findPhoto(props) {
