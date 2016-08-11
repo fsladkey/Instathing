@@ -10,7 +10,14 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many :photos
+  has_many :photos, -> { order(created_at: :desc) }
+  has_many :comments, foreign_key: :author_id
+
+  has_many :out_follows, foreign_key: :follower_id, class_name: "Follow"
+  has_many :in_follows, foreign_key: :followed_user_id, class_name: "Follow"
+
+  has_many :followed_users, through: :out_follows, source: :followed_user
+  has_many :in_follows, through: :in_follows, source: :follower_id
 
   def self.find_by_credentials(user_params)
     user = User.find_by(username: user_params[:username])

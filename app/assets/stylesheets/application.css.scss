@@ -28,7 +28,8 @@
 
  body {
    background: #FAFAFA;
-   font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, sans-serif;
+   font-family: 'Raleway', sans-serif;
+  //  font-family: proxima-nova, "Helvetica Neue", Arial, Helvetica, sans-serif;
  }
 
 
@@ -41,6 +42,13 @@
    list-style: none;
  }
 
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
  .thumbnail {
    width: 40px;
    height: 40px;
@@ -49,6 +57,10 @@
 
  .circle {
    border-radius: 50%;
+   overflow: hidden;
+ }
+
+ .noscroll {
    overflow: hidden;
  }
 
@@ -62,7 +74,7 @@
    width: 950px;
    margin: auto;
    padding: 20px;
-   background-color: purple;
+  //  background-color: purple;
  }
 
  .logo {
@@ -91,7 +103,7 @@
    font-size: 14px;
    padding: 0 10px 0 30px;
    display: block;
-   margin: auto;
+   margin: 6px auto;
    text-align: center;
    width: 215px;
    height: 28px;
@@ -102,7 +114,7 @@
 
  .search-icon {
    position: absolute;
-   top: 6px;
+   top: 11px;
    left: 120px;
    color: grey;
  }
@@ -137,229 +149,309 @@
  }
 
  .photo-index-item {
+   background-color: white;
    margin: auto;
-   height: 600px;
    margin-top: 60px;
    border-top-right-radius: 5px;
    border-top-left-radius: 5px;
-   overflow: hidden;
    border: 1px solid #DBDBDB;
+   font-size: 15px;
+   overflow: hidden;
  }
 
- .photo-index-item > h3 {
+ .photo-author-header {
    padding: 15px;
    background: white;
    font-weight: 600;
-   font-size: 15px;
  }
 
- .photo-index-item > h3 > a {
+ .photo-author-header > a {
    position: relative;
    top: -14px;
    margin-left: 20px;
+   letter-spacing: 1px;
  }
 
- .flex-row {
-   display: flex;
-   flex-direction: row;
+ .photo-author-header .time-ago {
+   float: right;
+   padding: 10px 15px;
  }
 
- .flex-item {
-   flex: 1;
+.photo-index-item > img {
+  height: 600px;
+  overflow: hidden;
+}
+
+.photo-index-item-footer {
+  padding: 25px;
+}
+
+.photo-modal-sidebar {
+  width: 335px;
+  padding: 20px;
+}
+
+.photo-modal-sidebar .comments {
+  height: 440px;
+  width: 320px;
+  overflow-y: auto;
+}
+
+.comments {
+  border-bottom: 1px solid #ddd;
+}
+
+ .comment {
+   margin-bottom: 10px;
  }
 
- .flex-item-double {
-   flex: 2;
+ .comment a {
+   font-weight: 600;
+   margin-right: 7px;
  }
 
- .sign-in-form {
-   display: none;
-   padding: 30px;
-   margin: 50px auto;
-   width: 350px;
-   height: 320px;
-   background: white;
-   text-align: center;
-   border: 1px solid #DBDBDB;
+.comment-form {
+}
+
+.comment-form input {
+  width: 100%;
+  border: none;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+.comment-form span {
+  display: block;
+  overflow: hidden;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: 'Raleway', sans-serif;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: 'Raleway', sans-serif;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-family: 'Raleway', sans-serif;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-family: 'Raleway', sans-serif;
+}
+
+.flex-row {
+ display: flex;
+ flex-direction: row;
+}
+
+.flex-item {
+ flex: 1;
+}
+
+.flex-item-double {
+ flex: 2;
+}
+
+.sign-in-form {
+ display: none;
+ padding: 30px;
+ margin: 50px auto;
+ width: 350px;
+ height: 320px;
+ background: white;
+ text-align: center;
+ border: 1px solid #DBDBDB;
+}
+
+.sign-in-form input {
+ width: 250px;
+ display: block;
+ margin: auto;
+ padding: 10px;
+}
+
+.sign-in-form button {
+ display: block;
+ margin: 20px auto 0 auto;
+ width: 270px;
+ padding: 5px;
+ background-color: #3897F0;
+ color: white;
+ font-weight: 500;
+ border-radius: 4px;
+}
+
+.sign-in-form label {
+ display: block;
+ margin-left: -5000px;
+}
+
+.modal-background {
+ position: fixed;
+ z-index: 1000;
+ top: 0;
+ bottom: 0;
+ right: 0;
+ left: 0;
+ background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+ margin: 40px auto 0 auto;
+ background-color: white;
+ max-width: 950px;
+}
+
+.modal-content > button {
+ border: 1px solid #DBDBDB;
+ background: white;
+ display: block;
+ padding: 20px;
+ width: 100%;
+ cursor: pointer;
+}
+
+.modal-content > img {
+  width: 600px;
+  height: 600px;
+}
+
+.modal-content > button:hover {
+ background: #FAFAFA;
+}
+
+.profile-photo {
+ width: 170px;
+ height: 170px;
+ margin: auto;
+ border: 1px solid #aaa;
+}
+
+.profile-container {
+ margin-bottom: 20px;
+ padding: 30px;
+}
+
+.user-profile-info {
+ padding-left: 40px;
+}
+
+.profile-header-item {
+ margin-right: 20px;
+}
+
+span.profile-header-item {
+ font-size: 34px;
+}
+
+.clickable.profile-header-item {
+ position: relative;
+ top: -3px;
+ padding: 6px 12px;
+ border: 1px solid #939393;
+ color: #939393;
+ border-radius: 3px;
+ background: transparent;
+ cursor: pointer;
+}
+
+i.profile-header-item {
+ position: relative;
+ top: 3px;
+ cursor: pointer;
+}
+
+.user-show {
+ display: none;
+ padding-top: 40px;
+}
+
+.user-stats strong {
+ font-weight: bold;
+ position: relative;
+ top: -1px;
+ margin-right: 10px;
+
+}
+
+.user-bio {
+ padding: 20px 0;
+}
+
+.user-stat {
+ margin-right: 20px;
+}
+
+.profile-photo-items {
+ display: flex;
+ align-items: flex-start;
+ justify-content: flex-start;;
+ flex-flow: row wrap;
+ /* tweak the where items line up on the row */
+ /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
+ align-content: flex-start;
+
+}
+
+.profile-photo-item {
+ width: 290px;
+ height: 290px;
+ background: white;
+ margin-left: 20px;
+ margin-bottom: 20px;
+ overflow: hidden;
+}
+
+.user-show {
+ width: 950px;
+ margin: auto;
+ padding: 25px;
+}
+
+.spinner {
+ margin: 100px auto;
+ width: 40px;
+ height: 40px;
+ position: relative;
+ text-align: center;
+
+ -webkit-animation: sk-rotate 2.0s infinite linear;
+ animation: sk-rotate 2.0s infinite linear;
+}
+
+.dot1, .dot2 {
+ width: 60%;
+ height: 60%;
+ display: inline-block;
+ position: absolute;
+ top: 0;
+ background-color: #333;
+ border-radius: 100%;
+
+ -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+ animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.dot2 {
+ top: auto;
+ bottom: 0;
+ -webkit-animation-delay: -1.0s;
+ animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+
+@-webkit-keyframes sk-bounce {
+ 0%, 100% { -webkit-transform: scale(0.0) }
+ 50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+ 0%, 100% {
+   transform: scale(0.0);
+   -webkit-transform: scale(0.0);
+ } 50% {
+   transform: scale(1.0);
+   -webkit-transform: scale(1.0);
  }
-
- .sign-in-form input {
-   width: 250px;
-   display: block;
-   margin: auto;
-   padding: 10px;
- }
-
- .sign-in-form button {
-   display: block;
-   margin: 20px auto 0 auto;
-   width: 270px;
-   padding: 5px;
-   background-color: #3897F0;
-   color: white;
-   font-weight: 500;
-   border-radius: 4px;
- }
-
- .sign-in-form label {
-   display: block;
-   margin-left: -5000px;
- }
-
- .modal-background {
-   position: fixed;
-   z-index: 1000;
-   top: 0;
-   bottom: 0;
-   right: 0;
-   left: 0;
-   background-color: rgba(0, 0, 0, 0.6);
- }
-
- .modal-content {
-   width: 500px;
-   margin: 100px auto 0 auto;
- }
-
- .modal-content > button {
-   border: 1px solid #DBDBDB;
-   background: white;
-   display: block;
-   padding: 20px;
-   width: 100%;
-   cursor: pointer;
- }
-
- .modal-content > button:hover {
-   background: #FAFAFA;
- }
-
- .profile-photo {
-   width: 170px;
-   height: 170px;
-   margin: auto;
- }
-
- .profile-container {
-   margin-bottom: 20px;
- }
-
- .user-profile-info {
-   padding-left: 40px;
- }
-
- .profile-header-item {
-   margin-right: 20px;
- }
-
- span.profile-header-item {
-   font-size: 34px;
- }
-
- .clickable.profile-header-item {
-   position: relative;
-   top: -3px;
-   padding: 6px 12px;
-   border: 1px solid #939393;
-   color: #939393;
-   border-radius: 3px;
-   background: transparent;
-   cursor: pointer;
- }
-
- i.profile-header-item {
-   position: relative;
-   top: 3px;
-   cursor: pointer;
- }
-
- .user-show {
-   display: none;
- }
-
- .user-stats strong {
-   font-weight: bold;
- }
-
- .user-bio {
-   padding: 10px 0;
- }
-
- .user-stat {
-   margin-right: 20px;
- }
-
- .profile-photo-items {
-   display: flex;
-   align-items: flex-start;
-   justify-content: flex-start;;
-   flex-flow: row wrap;
-   /* tweak the where items line up on the row */
-   /* valid values are: flex-start, flex-end, space-between, space-around, stretch */
-   align-content: flex-start;
-
- }
-
- .profile-photo-item {
-   width: 290px;
-   height: 290px;
-   background: white;
-   margin-left: 20px;
-   margin-bottom: 20px;
-   overflow: hidden;
- }
-
- .user-show {
-   width: 950px;
-   margin: auto;
-   padding: 25px;
- }
-
- .spinner {
-   margin: 100px auto;
-   width: 40px;
-   height: 40px;
-   position: relative;
-   text-align: center;
-
-   -webkit-animation: sk-rotate 2.0s infinite linear;
-   animation: sk-rotate 2.0s infinite linear;
- }
-
- .dot1, .dot2 {
-   width: 60%;
-   height: 60%;
-   display: inline-block;
-   position: absolute;
-   top: 0;
-   background-color: #333;
-   border-radius: 100%;
-
-   -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-   animation: sk-bounce 2.0s infinite ease-in-out;
- }
-
- .dot2 {
-   top: auto;
-   bottom: 0;
-   -webkit-animation-delay: -1.0s;
-   animation-delay: -1.0s;
- }
-
- @-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
- @keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
-
- @-webkit-keyframes sk-bounce {
-   0%, 100% { -webkit-transform: scale(0.0) }
-   50% { -webkit-transform: scale(1.0) }
- }
-
- @keyframes sk-bounce {
-   0%, 100% {
-     transform: scale(0.0);
-     -webkit-transform: scale(0.0);
-   } 50% {
-     transform: scale(1.0);
-     -webkit-transform: scale(1.0);
-   }
- }
+}

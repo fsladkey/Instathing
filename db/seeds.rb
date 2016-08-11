@@ -82,25 +82,43 @@ bailey.photos.create!(
   image: open("http://scontent-iad3-1.cdninstagram.com/t51.2885-15/e35/11386446_1611555925783148_1122403549_n.jpg?ig_cache_key=MTAyMjA5MDAzODY3NDI0NzQzNw%3D%3D.2")
 )
 
-chester.photos.create!(
+chester1 = chester.photos.create!(
   caption: "Playing some sad songs.",
   image: open("http://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/12976535_826825864090704_1034327565_n.jpg?ig_cache_key=MTIzMjIxODU1OTczMjY5OTMyNg%3D%3D.2")
 )
 
-chester.photos.create!(
+chester2 = chester.photos.create!(
   caption: "Taking care of some jerk.",
   image: open("http://scontent-ord1-1.cdninstagram.com/t51.2885-15/e35/12677360_1076168579115999_655778755_n.jpg?ig_cache_key=MTIyNjQyOTM1ODY2NzkxMTU1MA%3D%3D.2")
 )
 
-chester.photos.create!(
+chester3 = chester.photos.create!(
   image: open("http://scontent-ord1-1.cdninstagram.com/t51.2885-15/e35/12424436_1283694711671349_603015231_n.jpg?ig_cache_key=MTIyMjc5NDE4MDk4NDc1NDkxMA%3D%3D.2")
 )
 
-chester.photos.create!(
+chester4 = chester.photos.create!(
   caption: "I'm pretty into #tarot at the moment.",
   image: open("http://scontent-ord1-1.cdninstagram.com/t51.2885-15/e35/1168405_1031805170196187_1331406125_n.jpg?ig_cache_key=MTIwNjEwNzY3NTA5NjY5OTE0Mw%3D%3D.2")
 )
 
-pepper.photos.create!(
+pep1 = pepper.photos.create!(
   image: open("http://scontent-lga3-1.cdninstagram.com/t51.2885-15/e35/12826279_111679212561002_1102993857_n.jpg?ig_cache_key=MTIwNTE3NDE5MjE0OTAyNTA2Mw%3D%3D.2")
 )
+
+Photo.all.each do |photo|
+  photo.update(created_at: photo.created_at - rand(99).hours)
+end
+
+Comment.destroy_all
+
+photo_ids = Photo.all.pluck(:id)
+users = User.all
+100.times do
+  users.sample.comments.create!(
+    photo_id: photo_ids.sample,
+    body: [
+      Faker::ChuckNorris.fact,
+      Faker::StarWars.quote
+    ].sample
+  )
+end
