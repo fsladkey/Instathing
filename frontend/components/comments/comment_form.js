@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { createComment } from '../../actions/comment_actions';
+import LikeButton from '../like_button';
 
 export default class CommentForm extends React.Component {
 
@@ -35,14 +36,15 @@ export default class CommentForm extends React.Component {
   render() {
     const username = this.props.photo.user.username;
     return (
-      <form className="comment-form" onSubmit={this.handleSubmit}>
-        <span className="comment-input-wrapper">
+      <div className="comment-form">
+        <LikeButton photo={this.props.photo} />
+        <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.changeBody}
             placeholder="Add a comment..."
             value={this.state.body} />
-        </span>
-      </form>
+        </form>
+      </div>
     );
   }
 }

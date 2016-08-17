@@ -54,8 +54,8 @@ class ProfileInfo extends Component {
 
         <div className="user-stats">
           <UserStat type="Posts" num={this.postCount()}/>
-          <UserStat type="Followers" num="0"/>
-          <UserStat type="Following" num="0"/>
+          <UserStat type="Followers" num={this.props.user.num_followers}/>
+          <UserStat type="Following" num={this.props.user.num_following}/>
         </div>
 
       </div>

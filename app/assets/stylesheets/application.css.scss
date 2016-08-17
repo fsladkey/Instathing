@@ -211,18 +211,22 @@ button:focus {
  }
 
 .comment-form {
+  display: block;
+  position: relative;
 }
 
 .comment-form input {
-  width: 100%;
   border: none;
-  padding-top: 20px;
+  padding-top: 25px;
+  padding-left: 35px;
   font-size: 14px;
 }
 
-.comment-form span {
-  display: block;
-  overflow: hidden;
+.like-button {
+  position: absolute;
+  left: 5px;
+  top: 26px;
+  cursor: pointer;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

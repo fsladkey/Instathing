@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   has_many :in_follows, foreign_key: :followed_user_id, class_name: "Follow"
 
   has_many :followed_users, through: :out_follows, source: :followed_user
-  has_many :in_follows, through: :in_follows, source: :follower_id
+  has_many :followers, through: :in_follows, source: :follower
+  has_many :likes
 
   def self.find_by_credentials(user_params)
     user = User.find_by(username: user_params[:username])
